@@ -38,7 +38,12 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (gameManager.isGameOver)
+        
+    }
+
+    public void Swipe()
+    {
+        if (gameManager.isGameOver || gameManager.isPaused)
             return;
         
         Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
@@ -47,7 +52,7 @@ public class Target : MonoBehaviour
         
         if (gameObject.CompareTag("Bad"))
         {
-            gameManager.GameOver();
+            gameManager.clickedBad();
         }
     }
 
